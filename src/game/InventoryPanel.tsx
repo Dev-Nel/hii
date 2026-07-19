@@ -214,9 +214,7 @@ function AssetTab({ list, outfit, field, colorField, onEquip, onColor }: {
 function AccessoriesTab({ outfit, onEquip, onColor }: { outfit: OutfitState; onEquip: (k: string, v: string | null) => void; onColor: (k: string, v: string) => void }) {
   const toggle = (id: string) => {
     const has = outfit.accessories.includes(id);
-    onEquip('accessories', has ? null : id);
-    if (!has) onEquip('accessoriesAdd', id);
-    else onEquip('accessoriesRemove', id);
+    onEquip(has ? 'accessoriesRemove' : 'accessoriesAdd', id);
   };
   return (
     <div className="space-y-3">
